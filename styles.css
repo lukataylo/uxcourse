@@ -1,0 +1,261 @@
+/* START CSS RESET */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* END CSS REST */
+
+
+/* GENERAL STYLES */
+body {
+    font-family: 'Ubuntu Mono', monospace;
+    color: #000000;
+    background-color: #FBFBFB;
+    display: flex;
+    flex-direction:column;
+}
+
+
+main {
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+}
+
+/* HEADER STYLES */
+
+.header_bg {
+    position: absolute;
+    background: url(img/header_BG.svg);
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    top: 0;
+    width: 100%;
+    height: 650px;
+    z-index: -99;
+    overflow: visible;
+}
+
+head {
+    top: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* NAVIGATION STYLING */
+
+nav h1 {
+    font-family: 'Ubuntu Mono', monospace;
+    text-align: center;
+    font-size: 21px;
+    color: #000000;
+    text-align: center;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    float: left;
+    font-size: 18px;
+    color: #000000;
+    padding: 12px;
+}
+/* FILTER BUTOTNS */
+.search {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin-top: 120px;
+    margin-bottom: 120px;
+}
+
+.search h2 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 42px;
+    color: #000000;
+    text-align: center;
+}
+
+.tag {
+    backface-visibility: hidden;
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  white-space: nowrap;
+  background: #fff;
+  border-radius: 4px;
+  border: 3px solid #ffffff;
+  border-width: 3px 3px 3px 3px;
+  padding: 15px 30px 15px 30px;
+    color: #000;
+  font-size: 16px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: 900;
+  font-style: normal;
+  margin: 45px 20px;
+  }
+  .tag > div {
+    color: #999;
+  font-size: 10px;
+  font-family: 'Ubuntu Mono', monospace;
+  font-weight: initial;
+  font-style: normal;
+  text-align: center;
+  margin: 0px 0px 0px 0px
+  }
+  .tag > i {
+    font-size: 1em;
+  border-radius: 0px;
+  border: 0px solid transparent;
+  border-width: 0px 0px 0px 0px;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  position: static
+  }
+  .tag > .ld {
+    font-size: initial
+  }
+
+.filter_tags {
+    display: flex;
+    justify-content: center;
+}
+
+/* SHOWCASE STYLES */
+.showcase {
+    display: flex;
+    flex-direction: column;
+    margin-top: 45px;
+}
+
+
+/* TITLE SYLES */
+
+.title {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 35px;
+}
+
+.title img {
+    min-height: 72px;
+    min-width: 72px;
+    background: #FFFFFF;
+    box-shadow: 4px 8px 32px 0 rgba(30,32,56,0.08);
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.title h2 {
+    padding-top: 20px;
+    padding-left:10px;
+    font-family: 'Ubuntu Mono', monospace;
+    font-weight: bold;
+    font-size: 32px;
+    color: #323442;
+}
+
+  /* PATTERNS STYLING */
+.showcase_images {
+    display: flex;
+    flex-direction: row;
+    justify-content:space-between;
+    margin-bottom: 82px;
+}
+
+.pattern {
+    max-width: 360px;
+    background-color: white;
+    box-shadow: 8px 12px 32px 0 rgba(19,20,36,0.07);
+    border-radius: 24px;
+    float: left;
+    margin-right: 40px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.pattern img {
+    max-width: 360px;
+    height: auto;
+}
+
+.pattern_text {
+    padding: 20px;
+    line-height: 1.4em;
+}
+
+.pattern h3 {
+    font-family: 'Ubuntu Mono', monospace;
+    font-size: 21px;
+    color: #323442;
+    text-align: left;
+}
+
+.pattern h3 a {
+    text-decoration: none;
+    color: #292929;
+}
+
+.pattern p {
+    font-size: 16px;
+    color: #292929;
+    text-align: left;
+}
+
+
+
+
+
+
+

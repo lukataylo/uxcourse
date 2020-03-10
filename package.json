@@ -1,0 +1,29 @@
+{
+  "name": "uxcourse",
+  "version": "1.0.0",
+  "description": "Notes on UX",
+  "main": "index.js",
+  "dependencies": {
+    "jekyll": "^3.0.0-beta1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lukataylo/uxcourse.git"
+  },
+  "keywords": [
+    "UX",
+    "Design",
+    "UX",
+    "patterms"
+  ],
+  "author": "Luka Dadiani",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lukataylo/uxcourse/issues"
+  },
+  "homepage": "https://github.com/lukataylo/uxcourse#readme"
+}
