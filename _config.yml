@@ -1,7 +1,7 @@
 site:  UXCourse
 
 url: https://uxcourse.com
-baseurl: https://uxcourse.com
+baseurl: 
 
 collections:
   pages:
