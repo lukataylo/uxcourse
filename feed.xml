@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <title>UXCourse</title>
+    <link href="https://uxcourse.com/feed.xml" rel="self" />
+    <link href="https://uxcourse.com" />
+    <updated>2021-03-03T14:57:39+00:00</updated>
+    <author>
+        <name>Luka Dadiani</name>
+    </author>
+    <id>https://uxcourse.com</id>
+
+    <entry>
+        <title>How to validate ideas without deceiving yourself</title>
+        <author>
+            <name>Luka Dadiani</name>
+        </author>
+        <link href="https://uxcourse.com/how-to-validate-ideas-without-deceiving-yourself.html"/>
+        <id>https://uxcourse.com/how-to-validate-ideas-without-deceiving-yourself.html</id>
+
+        <updated>2021-03-03T14:57:39+00:00</updated>
+            <summary>
+                <![CDATA[
+                        <img src="https://uxcourse.com/media/posts/1/Asking-Questions.png" alt="Asking Questions" />
+                    <p>We've all been there, you and your team mates have what you think is a great idea. Maybe its an awesome new gesture, or a feature you think the customers are going to love. You do everything you're meant to, you interview existing customers and potential users, you build and test multiple iterations of the idea. Finally just when you think its going to be a massive hit, you launch and ..... its a flop, customers don't use it, new user feedback glances over it and later even your friend tells you 'it kinda doesn't work'. </p>
+<p>But what happened? You followed the process, did everything by the book, right? </p>
+<p>Wrong. Let me tell you why and how you can become a better interviewer.</p>
+
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                    <img src="https://uxcourse.com/media/posts/1/Asking-Questions.png" alt="Asking Questions" />
+                <p>We've all been there, you and your team mates have what you think is a great idea. Maybe its an awesome new gesture, or a feature you think the customers are going to love. You do everything you're meant to, you interview existing customers and potential users, you build and test multiple iterations of the idea. Finally just when you think its going to be a massive hit, you launch and ..... its a flop, customers don't use it, new user feedback glances over it and later even your friend tells you 'it kinda doesn't work'. </p>
+<p>But what happened? You followed the process, did everything by the book, right? </p>
+<p>Wrong. Let me tell you why and how you can become a better interviewer.</p>
+
+<figure class="post__image"><img loading="lazy"  src="https://i.imgur.com/0C96t9F.png" data-is-external-image="true"  alt="Puzzled" width="788" height="486"></figure>
+<p>It wasn't until I read Rob Fitzpatrick's excellent book <a href="http://momtestbook.com/" title="The mum test official website" target="_blank" rel="noopener noreferrer">'The mum test'</a> that I realised what I was doing wrong. Here is a quick rundown (though you should totally read the book)</p>
+<h2>You're asking the wrong questions</h2>
+<p>First of all many UX designers make the same two mistakes when interviewing subjects:</p>
+<p>1. They assume when asking questions that people have a good understanding of their own feelings, emotions and experiences.</p>
+<p>2. And even more importantly they assume when interviewing someone that the answers received are truthful.  </p>
+<p>Rob Fitzpatrick goes into a beautifully simple and sometimes hilarious explanation as two why these two assumptions are often wrong.</p>
+<h2>People Lie</h2>
+<p>Lets start with honesty. The fact is people lie .... yeah I know you're shocked. But seriously they lie more often then you'd think. </p>
+<p>For example: if you were to ask a friend or a colleague if your idea for a 'clubhouse for pet cats' is something they'd consider using, 9 out of 10 times the answer you'll get is a yes. </p>
+<p>Why? because even though your idea is so obviously terrible, people generally dont want to hurt your feelings, so they will just say yes. </p>
+<p>Think about it, in most situations when someone pours their heart out or is really excited about a dumb idea its much easier to say yes, then it is to shatter their hopes and dreams and potentially witness a breakdown. </p>
+<p>This is why you have to be very careful when asking questions. In general its always best to avoid direct questions that attempt to validate a feature or an idea.</p>
+<p>Instead try to ask people how they typically use your product/feature (or a competitor's), better still ask for specific examples of how they have solved a relevant issue before using that feature.</p>
+<p>So for example if we're testing a new photography app, try asking questions like:</p>
+<p>- When was the last time you did x with your camera?</p>
+<p>- When  you were last on holiday did you use your phone or a DSLR?</p>
+<p>Asking specific questions like helps your subject think clearly and provide helpful answers. Instead of lying to you to save embarrassment.  </p>
+<h2>People dont know what they want</h2>
+<p>We all know the famous quote mis-attributed to Henry Ford:</p>
+<p>"If I had asked the people they would have wanted a faster horse"</p>
+<p>I mean Steve Jobs even had it in the OG iPhone Keynote. So why do we keep asking users for what they want?</p>
+<p>A common type of question that will get you in trouble goes something like this:</p>
+<p>You: <em>Oh I see so you couldn't create a chart in our software so you exported to CSV instead. What would make you stay in our software?</em></p>
+<p>To which the hapless user my answer:</p>
+<p>User: <em>Uuu, I dont know, I guess if you added the ability to create pie charts I would spend more time in your analytics package ...</em></p>
+<p>This answer is not helpful, because you've put the subject on the spot, but more importantly the subject doesn't really know if having pie charts is going fix anything. They likely said the first thing that came to mind. </p>
+<p>A better way to ask a similar question is :</p>
+<p>You: <em>When was the last time you enjoyed using a web analytics product?  and why?</em></p>
+<p>With that line of questioning you're much more likely to strike at some deep truths. By being specific about the subject's past and removing the need for them to protect your ego, you'll get answers that are truthful and actually useful.</p>
+<h2>Summary </h2>
+<p>In summary you should go read the book it's great and covers much more than I could ever cover in this article. But some key takeaways for you to remember are:</p>
+<p>- Never put your ego on the line, by asking the interviewee direct questions about product features and ideas. They will lie and you'll delude yourself into thinking you've struck gold.</p>
+<p>- Don't ask people for feature requests or product ideas. They just wont give you good answers most of the time. Instead ask them about specific ways they use yours or a competitors products.</p>
+<p> </p>
+<p> </p>
+<p> </p>
+<p> </p>
+            ]]>
+        </content>
+    </entry>
+</feed>
