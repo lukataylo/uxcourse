@@ -136,7 +136,7 @@ const Home: React.FC<HomeProps> = ({ content }) => {
               <div className="w-[1px] bg-zinc-800" />
               <div className="text-left">
                  <p className="text-[10px] font-black text-[#ff8c00] uppercase mb-2">Last Updated</p>
-                 <p className="text-2xl font-bold tracking-tighter">Oct 2024</p>
+                 <p className="text-2xl font-bold tracking-tighter">2025</p>
               </div>
               <div className="w-[1px] bg-zinc-800" />
               <div className="text-left">
@@ -145,7 +145,7 @@ const Home: React.FC<HomeProps> = ({ content }) => {
               </div>
            </div>
            <div className="mt-24 pt-12 border-t border-zinc-800">
-              <p className="text-xs font-bold text-zinc-600 uppercase tracking-widest">© 2024 UXcourse.com — All Rights Reserved</p>
+              <p className="text-xs font-bold text-zinc-600 uppercase tracking-widest">© 2026 UXcourse.com — All Rights Reserved</p>
            </div>
         </div>
       </footer>
