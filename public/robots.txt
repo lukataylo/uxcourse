@@ -1,0 +1,10 @@
+# robots.txt for uxcourse.com
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://uxcourse.com/sitemap.xml
+
+# Block admin area from indexing
+Disallow: /admin/
