@@ -1,5 +1,6 @@
 
 import React, { useEffect, useState, useRef } from 'react';
+import ReactMarkdown from 'react-markdown';
 import { Chapter } from '../types';
 import RightNav from './RightNav';
 
@@ -89,12 +90,8 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
                    <h2 className="text-4xl font-black tracking-tight uppercase leading-none">{section.title}</h2>
                 </div>
                 
-                <div className="prose prose-zinc lg:prose-xl max-w-none">
-                  {section.content.split('\n\n').map((para, i) => (
-                    <p key={i} className="text-xl leading-relaxed text-zinc-600 mb-8 font-medium tracking-tight">
-                      {para}
-                    </p>
-                  ))}
+                <div className="prose prose-zinc lg:prose-xl max-w-none prose-p:text-xl prose-p:leading-relaxed prose-p:text-zinc-600 prose-p:mb-6 prose-p:font-medium prose-strong:text-zinc-900 prose-ul:text-zinc-600 prose-li:text-xl prose-li:leading-relaxed">
+                  <ReactMarkdown>{section.content}</ReactMarkdown>
                 </div>
               </section>
             ))}
