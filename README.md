@@ -1,184 +1,61 @@
-# UXcourse.com
+# UX Design in the Era of AI
 
-A modern, static website for presenting "UX Design in the Era of AI" - a comprehensive guide for designers transitioning to AI-enhanced design roles.
+A comprehensive guide for junior and mid-career UX designers transitioning to AI-enhanced design roles.
 
-## Overview
+**[Read the book at uxcourse.com →](https://uxcourse.com)**
 
-This project is a React-based static site that renders a digital book with:
-- **7 Parts** covering UX design in the AI era
-- **22 Chapters** with detailed content
-- **4 Appendices** with reference materials
-- **Decap CMS** for content management via a visual editor
+## About the Book
 
-The site is designed for static hosting (GitHub Pages) with content managed through markdown files.
+Artificial intelligence is fundamentally reshaping the practice of UX design. Nearly half of UX designers have begun using AI to experiment with new design strategies, yet many find themselves uncertain about how to integrate these tools effectively into their work.
 
-## Tech Stack
+This guide is built on a simple premise: **AI will not replace UX designers, but designers who effectively leverage AI will have significant advantages over those who don't.**
 
-- **React 19** - UI framework
-- **TypeScript** - Type safety
-- **Vite** - Build tool and dev server
-- **Tailwind CSS** - Styling (via CDN)
-- **Decap CMS** - Git-based headless CMS
-- **react-markdown** - Markdown rendering
-- **GitHub Actions** - CI/CD deployment
+The goal is not to turn you into an AI engineer. Rather, it's to help you understand how AI can augment your existing skills, accelerate your workflows, and enable you to create better products for users.
 
-## Project Structure
+## What You'll Learn
 
-```
-├── components/
-│   ├── Header.tsx       # Site header with navigation
-│   ├── Home.tsx         # Homepage with book intro and TOC
-│   ├── Sidebar.tsx      # Navigation sidebar with parts/chapters
-│   ├── ChapterPage.tsx  # Chapter content renderer
-│   └── RightNav.tsx     # In-chapter section navigation
-├── hooks/
-│   └── useBookContent.ts    # Loads and combines content from JSON/MD files
-├── utils/
-│   └── parseBookMarkdown.ts # Parses markdown into structured book data
-├── public/
-│   ├── admin/
-│   │   ├── index.html   # Decap CMS entry point
-│   │   └── config.yml   # CMS configuration
-│   └── content/
-│       ├── homepage.json    # Homepage metadata (title, subtitle, intro)
-│       ├── book.md          # Full book content in markdown
-│       └── appendices.json  # Appendix content
-├── types.ts             # TypeScript interfaces
-├── App.tsx              # Main app with routing
-└── index.tsx            # React entry point
-```
+The book is organized into seven parts covering the full spectrum of AI-enhanced UX work:
 
-## How It Works
+| Part | Focus | Chapters |
+|------|-------|----------|
+| **I** | Understanding the New Landscape | The AI revolution, core concepts, evolving designer roles |
+| **II** | AI-Enhanced User Research | Automating analysis, AI personas, research materials |
+| **III** | AI-Powered Ideation & Design | Brainstorming, visual design, UX writing with AI |
+| **IV** | Prototyping & Implementation | Rapid prototyping, design-to-code, AI-assisted reviews |
+| **V** | Testing & Iteration | AI-moderated testing, feedback analysis, personalization |
+| **VI** | Designing AI-Powered Products | Mental models, transparency, ethics, error handling |
+| **VII** | Career Development | Portfolio building, essential skills, interview preparation |
 
-### Content Structure
+Plus four appendices with practical resources: AI glossary, tool comparisons, prompt library, and a career transition checklist.
 
-The book content is split into three files for easier management:
+## Who This Is For
 
-1. **`homepage.json`** - Book metadata displayed on the homepage
-   - Title, subtitle, description
-   - Introduction paragraphs
+- Junior and mid-career UX designers looking to transition to AI-enhanced roles
+- Designers already using tools like ChatGPT or Midjourney who want to deepen their practice
+- Anyone concerned about how AI might change their design job and wanting to get ahead
 
-2. **`book.md`** - Full book content in markdown format
-   - Uses heading levels to define structure:
-     - `**PART I**` + subtitle line = Part
-     - `# **Chapter N: Title**` = Chapter
-     - `## **Section Title**` = Section
-   - Content supports full markdown (bold, lists, etc.)
+---
 
-3. **`appendices.json`** - Reference materials
-   - Array of appendix objects with id, title, and markdown content
+## Technical Details
 
-### Markdown Parser
+This repository contains the source code for [uxcourse.com](https://uxcourse.com), a React-based static site with Decap CMS for content management.
 
-The `parseBookMarkdown.ts` utility converts the markdown file into a structured `Part[]` array:
+### Tech Stack
 
-- Detects and skips Table of Contents section
-- Extracts parts from `**PART X**` headings
-- Extracts chapters from `# **Chapter N: Title**` headings
-- Extracts sections from `## **Title**` headings
-- Normalizes paragraph breaks for proper rendering
-- Cleans bold markers from titles
+React 19 · TypeScript · Vite · Tailwind CSS · Decap CMS · GitHub Pages
 
-### Routing
-
-Uses hash-based client-side routing:
-- `#/` - Homepage
-- `#/chapter/{chapter-id}` - Chapter pages
-- `#/appendix/{appendix-id}` - Appendix pages
-
-### CMS Integration
-
-Decap CMS provides a visual editor at `/admin/`:
-- Edits content files directly in the Git repository
-- No backend required - works with GitHub/GitLab
-- Local development proxy for editing without auth
-
-## Development
-
-### Prerequisites
-
-- Node.js 18+
-- npm
-
-### Local Development
+### Development
 
 ```bash
-# Install dependencies
 npm install
-
-# Start dev server
-npm run dev
-
-# Start CMS proxy (in separate terminal, for local content editing)
-npm run dev:cms
+npm run dev          # Start dev server
+npm run dev:cms      # Start CMS proxy (separate terminal)
 ```
 
-Then visit:
-- **Site**: http://localhost:3000
-- **CMS**: http://localhost:3000/admin/
+### Content
 
-### Build for Production
+Book content lives in `public/content/book.md` as a single markdown file. The parser automatically extracts the structure from heading conventions.
 
-```bash
-npm run build
-```
-
-Output is in the `dist/` directory.
-
-## Deployment
-
-The site deploys automatically to GitHub Pages via GitHub Actions:
-
-1. Push to `master` branch triggers the workflow
-2. Workflow builds the site with Vite
-3. Adds CNAME file for custom domain
-4. Deploys to GitHub Pages
-
-### GitHub Pages Setup
-
-1. Go to repository Settings > Pages
-2. Set Source to "GitHub Actions"
-3. Custom domain (optional): Configure in repository settings
-
-## Content Editing
-
-### Via CMS (Recommended)
-
-1. Go to `https://yoursite.com/admin/`
-2. Authenticate with GitHub
-3. Edit content in the visual editor
-4. Save to commit changes directly to the repo
-
-### Via Markdown
-
-Edit files directly in `public/content/`:
-- `homepage.json` for homepage content
-- `book.md` for book chapters (follow heading conventions)
-- `appendices.json` for appendix content
-
-### Markdown Format for Book Content
-
-```markdown
-**PART I**
-
-UNDERSTANDING THE NEW LANDSCAPE
-
-# **Chapter 1: The AI Revolution in UX Design**
-
-Intro paragraph for the chapter...
-
-## **The Shift Toward AI as Co-Designer**
-
-Section content here. Supports **bold**, *italics*, and lists:
-
-- Item one
-- Item two
-
-## **Next Section Title**
-
-More content...
-```
-
-## License
+---
 
 © 2026 UXcourse.com — All Rights Reserved
