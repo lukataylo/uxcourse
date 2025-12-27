@@ -90,7 +90,7 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
                    <h2 className="text-4xl font-black tracking-tight uppercase leading-none">{section.title}</h2>
                 </div>
                 
-                <div className="prose prose-zinc lg:prose-xl max-w-none prose-p:text-xl prose-p:leading-relaxed prose-p:text-zinc-600 prose-p:mb-6 prose-p:font-medium prose-strong:text-zinc-900 prose-ul:text-zinc-600 prose-li:text-xl prose-li:leading-relaxed">
+                <div className="prose prose-zinc lg:prose-xl max-w-none [&>p]:text-xl [&>p]:leading-relaxed [&>p]:text-zinc-600 [&>p]:mb-8 [&>p]:font-medium [&>p]:mt-0 [&_strong]:text-zinc-900 [&>ul]:text-zinc-600 [&>ul]:mb-8 [&_li]:text-xl [&_li]:leading-relaxed [&_li]:mb-2">
                   <ReactMarkdown>{section.content}</ReactMarkdown>
                 </div>
               </section>
