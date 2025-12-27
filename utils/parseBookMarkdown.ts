@@ -23,6 +23,7 @@ export function parseBookMarkdown(markdown: string): Part[] {
   let chapterNumber = 0;
   let contentBuffer: string[] = [];
   let skipNextLine = false;
+  let inTableOfContents = false;
 
   const flushContent = () => {
     if (currentSection && contentBuffer.length > 0) {
@@ -53,6 +54,27 @@ export function parseBookMarkdown(markdown: string): Part[] {
     if (skipNextLine) {
       skipNextLine = false;
       continue;
+    }
+
+    // Detect Table of Contents section and skip it
+    if (line.includes('Table of Contents') || line.includes('TABLE OF CONTENTS')) {
+      inTableOfContents = true;
+      continue;
+    }
+
+    // Exit Table of Contents when we hit a chapter heading, Introduction, or actual Part header
+    if (inTableOfContents) {
+      // Actual part headers are just "**PART I**" without the full title
+      // TOC entries have "**PART I: FULL TITLE**"
+      const isActualPartHeader = /^\*\*PART\s+[IVXLC]+\*\*$/.test(line.trim());
+      const isChapterOrIntro = line.startsWith('# ') && /chapter\s+\d+|introduction/i.test(line);
+
+      if (isActualPartHeader || isChapterOrIntro) {
+        inTableOfContents = false;
+        // Don't continue - process this line
+      } else {
+        continue; // Skip TOC content
+      }
     }
 
     // Part heading: **PART I** or **PART I: TITLE** (bold on its own line)
