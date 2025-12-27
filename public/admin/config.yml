@@ -1,0 +1,45 @@
+backend:
+  name: git-gateway
+  branch: main
+
+local_backend: true
+
+media_folder: "public/images"
+public_folder: "/images"
+
+collections:
+  - name: "site"
+    label: "Site Content"
+    files:
+      - name: "homepage"
+        label: "Homepage"
+        file: "public/content/homepage.json"
+        fields:
+          - { name: "title", label: "Book Title", widget: "string" }
+          - { name: "subtitle", label: "Subtitle", widget: "string" }
+          - { name: "description", label: "Description", widget: "text" }
+          - name: "intro"
+            label: "Introduction Paragraphs"
+            widget: "list"
+            field: { name: "paragraph", label: "Paragraph", widget: "text" }
+
+      - name: "book"
+        label: "Book Content"
+        file: "public/content/book.md"
+        fields:
+          - name: "body"
+            label: "Book Content (Markdown)"
+            widget: "markdown"
+            hint: "Use # for Parts, ## for Chapters, ### for Sections. Example: # PART I: Title"
+
+      - name: "appendices"
+        label: "Appendices"
+        file: "public/content/appendices.json"
+        fields:
+          - name: "items"
+            label: "Appendices"
+            widget: "list"
+            fields:
+              - { name: "id", label: "ID (e.g., appendix-a)", widget: "string" }
+              - { name: "title", label: "Title", widget: "string" }
+              - { name: "content", label: "Content", widget: "markdown" }
