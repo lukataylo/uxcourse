@@ -26,7 +26,21 @@ export function parseBookMarkdown(markdown: string): Part[] {
 
   const flushContent = () => {
     if (currentSection && contentBuffer.length > 0) {
-      currentSection.content = contentBuffer.join('\n').trim();
+      // Join lines and normalize paragraph breaks
+      // Convert single newlines within paragraphs to spaces
+      // Keep double newlines as paragraph separators
+      const rawContent = contentBuffer.join('\n').trim();
+
+      // Normalize: collapse multiple blank lines to double newline (paragraph break)
+      // Then convert remaining single newlines to spaces (same paragraph)
+      const normalized = rawContent
+        .replace(/\n{3,}/g, '\n\n')  // Collapse 3+ newlines to 2
+        .replace(/\n\n/g, '{{PARA}}')  // Temporarily mark paragraph breaks
+        .replace(/\n/g, ' ')  // Single newlines become spaces
+        .replace(/{{PARA}}/g, '\n\n')  // Restore paragraph breaks
+        .replace(/  +/g, ' ');  // Collapse multiple spaces
+
+      currentSection.content = normalized;
       contentBuffer = [];
     }
   };
