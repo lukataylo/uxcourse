@@ -129,20 +129,19 @@ const Home: React.FC<HomeProps> = ({ content }) => {
              This guide is a living document, updated monthly as AI tools and methodologies evolve. Join over 5,000 designers who are defining the next era of user experience.
            </p>
            <div className="flex justify-center gap-8">
-              <div className="text-left">
-                 <p className="text-[10px] font-black text-brand uppercase mb-2">Word Count</p>
-                 <p className="text-2xl font-bold tracking-tighter">45,000+</p>
-              </div>
-              <div className="w-[1px] bg-zinc-800" />
-              <div className="text-left">
-                 <p className="text-[10px] font-black text-brand uppercase mb-2">Last Updated</p>
-                 <p className="text-2xl font-bold tracking-tighter">2025</p>
-              </div>
-              <div className="w-[1px] bg-zinc-800" />
-              <div className="text-left">
-                 <p className="text-[10px] font-black text-brand uppercase mb-2">License</p>
-                 <p className="text-2xl font-bold tracking-tighter">Open Access</p>
-              </div>
+              {[
+                { label: 'Word Count', value: '45,000+' },
+                { label: 'Last Updated', value: '2025' },
+                { label: 'License', value: 'Open Access' }
+              ].map((stat, i) => (
+                <React.Fragment key={stat.label}>
+                  {i > 0 && <div className="w-[1px] bg-zinc-800" />}
+                  <div className="text-left">
+                    <p className="text-[10px] font-black text-brand uppercase mb-2">{stat.label}</p>
+                    <p className="text-2xl font-bold tracking-tighter">{stat.value}</p>
+                  </div>
+                </React.Fragment>
+              ))}
            </div>
            <div className="mt-24 pt-12 border-t border-zinc-800">
               <p className="text-xs font-bold text-zinc-600 uppercase tracking-widest">© 2026 UXcourse.com — All Rights Reserved</p>

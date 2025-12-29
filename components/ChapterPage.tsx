@@ -113,22 +113,22 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
               </div>
               
               <div className="flex gap-6 w-full md:w-auto">
-                {prevChapter && (
-                  <a 
-                    href={`#/chapter/${prevChapter.id}`} 
-                    className="flex-1 md:flex-none text-center text-[10px] font-black tracking-widest uppercase px-10 py-5 border-2 border-zinc-900 hover:bg-zinc-900 hover:text-white transition-all shadow-md hover:shadow-xl"
+                {[
+                  prevChapter && { id: prevChapter.id, label: 'Back', primary: false },
+                  nextChapter && { id: nextChapter.id, label: 'Continue', primary: true }
+                ].filter(Boolean).map((btn) => (
+                  <a
+                    key={btn.label}
+                    href={`#/chapter/${btn.id}`}
+                    className={`flex-1 md:flex-none text-center text-[10px] font-black tracking-widest uppercase px-10 py-5 transition-all ${
+                      btn.primary
+                        ? 'bg-brand text-white hover:bg-black shadow-lg shadow-orange-100 hover:shadow-zinc-200'
+                        : 'border-2 border-zinc-900 hover:bg-zinc-900 hover:text-white shadow-md hover:shadow-xl'
+                    }`}
                   >
-                    Back
+                    {btn.label}
                   </a>
-                )}
-                {nextChapter && (
-                  <a 
-                    href={`#/chapter/${nextChapter.id}`} 
-                    className="flex-1 md:flex-none text-center text-[10px] font-black tracking-widest uppercase px-10 py-5 bg-brand text-white hover:bg-black transition-all shadow-lg shadow-orange-100 hover:shadow-zinc-200"
-                  >
-                    Continue
-                  </a>
-                )}
+                ))}
               </div>
             </div>
           </div>
