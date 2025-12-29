@@ -58,15 +58,34 @@
     </script>
 
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                DEFAULT: '#ff8c00',
+                dark: '#e67e00',
+                light: '#ffab40'
+              }
+            }
+          }
+        }
+      }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
+      :root {
+        --color-brand: #ff8c00;
+        --color-brand-dark: #e67e00;
+      }
       body {
         font-family: 'Inter', sans-serif;
       }
       h1, h2, h3, h4, .font-heading {
-        font-family: 'Space+Grotesk', sans-serif;
+        font-family: 'Space Grotesk', sans-serif;
       }
       .custom-scrollbar::-webkit-scrollbar {
         width: 4px;
@@ -75,11 +94,11 @@
         background: transparent;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: #ff8c00;
+        background: var(--color-brand);
         border-radius: 2px;
       }
       ::selection {
-        background-color: #ff8c00;
+        background-color: var(--color-brand);
         color: white;
       }
     </style>

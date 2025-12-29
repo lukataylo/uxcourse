@@ -32,7 +32,7 @@ const App: React.FC = () => {
       return (
         <div className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <div className="w-8 h-8 border-4 border-[#ff8c00] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
+            <div className="w-8 h-8 border-4 border-brand border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
             <p className="text-zinc-500">Loading content...</p>
           </div>
         </div>
@@ -93,9 +93,9 @@ const App: React.FC = () => {
             </div>
             <div className="flex-1 overflow-y-auto bg-white custom-scrollbar">
               <div className="max-w-3xl mx-auto px-6 py-24">
-                <span className="text-[#ff8c00] font-black text-xs uppercase tracking-widest mb-4 block">Resources</span>
+                <span className="text-brand font-black text-xs uppercase tracking-widest mb-4 block">Resources</span>
                 <h1 className="text-5xl font-black tracking-tighter mb-12 uppercase">{appendix.title}</h1>
-                <div className="prose prose-zinc lg:prose-xl max-w-none [&>p]:text-xl [&>p]:leading-relaxed [&>p]:text-zinc-600 [&>p]:mb-8 [&>p]:font-medium [&>h2]:text-3xl [&>h2]:font-black [&>h2]:tracking-tight [&>h2]:uppercase [&>h2]:mt-16 [&>h2]:mb-8 [&_em]:text-zinc-500 [&_em]:block [&_em]:bg-zinc-50 [&_em]:p-4 [&_em]:border-l-4 [&_em]:border-[#ff8c00] [&_em]:mb-4 [&_em]:not-italic">
+                <div className="prose prose-zinc lg:prose-xl max-w-none [&>p]:text-xl [&>p]:leading-relaxed [&>p]:text-zinc-600 [&>p]:mb-8 [&>p]:font-medium [&>h2]:text-3xl [&>h2]:font-black [&>h2]:tracking-tight [&>h2]:uppercase [&>h2]:mt-16 [&>h2]:mb-8 [&_em]:text-zinc-500 [&_em]:block [&_em]:bg-zinc-50 [&_em]:p-4 [&_em]:border-l-4 [&_em]:border-brand [&_em]:mb-4 [&_em]:not-italic">
                   <ReactMarkdown>{appendix.content}</ReactMarkdown>
                 </div>
               </div>
@@ -114,7 +114,7 @@ const App: React.FC = () => {
         <div className="flex-1 p-20 flex flex-col items-center justify-center text-center">
           <h2 className="text-4xl font-black mb-4 uppercase tracking-tighter">404 - Section Missing</h2>
           <p className="text-zinc-500 mb-8 max-w-sm">We couldn't find that part of the book. It might be under review or moved.</p>
-          <a href="#/" className="px-10 py-4 bg-[#ff8c00] text-white font-black uppercase text-xs tracking-widest transition-all hover:bg-black">Return to Homepage</a>
+          <a href="#/" className="px-10 py-4 bg-brand text-white font-black uppercase text-xs tracking-widest transition-all hover:bg-black">Return to Homepage</a>
         </div>
       </div>
     );

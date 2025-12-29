@@ -12,7 +12,7 @@ const Sidebar: React.FC<SidebarProps> = ({ content, activeId }) => {
     <aside className="w-full h-full border-r border-zinc-200 overflow-y-auto custom-scrollbar bg-white">
       <div className="p-6 border-b border-zinc-200">
         <a href="#/" className="block">
-          <h2 className="text-xs font-bold tracking-widest text-[#ff8c00] uppercase mb-1">Index</h2>
+          <h2 className="text-xs font-bold tracking-widest text-brand uppercase mb-1">Index</h2>
           <h1 className="text-xl font-bold leading-none tracking-tight">THE BOOK</h1>
         </a>
       </div>
@@ -30,7 +30,7 @@ const Sidebar: React.FC<SidebarProps> = ({ content, activeId }) => {
                     href={`#/chapter/${chapter.id}`}
                     className={`block px-2 py-2 text-sm transition-colors rounded-sm ${
                       activeId === chapter.id
-                        ? 'bg-orange-50 text-[#ff8c00] font-bold border-l-2 border-[#ff8c00]'
+                        ? 'bg-orange-50 text-brand font-bold border-l-2 border-brand'
                         : 'text-zinc-600 hover:text-zinc-900 hover:bg-zinc-50'
                     }`}
                   >
@@ -54,7 +54,7 @@ const Sidebar: React.FC<SidebarProps> = ({ content, activeId }) => {
                   href={`#/appendix/${appx.id}`}
                   className={`block px-2 py-2 text-sm transition-colors ${
                     activeId === appx.id
-                      ? 'text-[#ff8c00] font-bold'
+                      ? 'text-brand font-bold'
                       : 'text-zinc-600 hover:text-zinc-900'
                   }`}
                 >

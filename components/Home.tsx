@@ -20,8 +20,8 @@ const Home: React.FC<HomeProps> = ({ content }) => {
       <section className="max-w-7xl mx-auto px-6 pt-32 pb-24 border-b border-zinc-100">
         <div className="grid lg:grid-cols-12 gap-16 items-start">
           <div className="lg:col-span-8 animate-fade-in">
-            <h2 className="text-[#ff8c00] font-black tracking-[0.25em] uppercase text-[10px] mb-6 flex items-center gap-4">
-              <span className="w-12 h-[1px] bg-[#ff8c00]"></span>
+            <h2 className="text-brand font-black tracking-[0.25em] uppercase text-[10px] mb-6 flex items-center gap-4">
+              <span className="w-12 h-[1px] bg-brand"></span>
               {content.subtitle}
             </h2>
             <h1 className="text-7xl md:text-[120px] font-black tracking-tighter leading-[0.85] mb-12 uppercase">
@@ -33,7 +33,7 @@ const Home: React.FC<HomeProps> = ({ content }) => {
               "{content.description}"
             </p>
             <div className="flex flex-wrap gap-6">
-              <a href="#/chapter/chapter-1" className="px-10 py-5 bg-[#ff8c00] text-white font-black uppercase text-xs tracking-widest hover:bg-black transition-all transform hover:-translate-y-1 shadow-lg shadow-orange-100 hover:shadow-zinc-200">
+              <a href="#/chapter/chapter-1" className="px-10 py-5 bg-brand text-white font-black uppercase text-xs tracking-widest hover:bg-black transition-all transform hover:-translate-y-1 shadow-lg shadow-orange-100 hover:shadow-zinc-200">
                 Start Reading Now
               </a>
               <button 
@@ -47,7 +47,7 @@ const Home: React.FC<HomeProps> = ({ content }) => {
           
           <div className="lg:col-span-4 hidden lg:block sticky top-32">
              <div className="bg-zinc-50 border border-zinc-100 p-12 relative overflow-hidden group">
-                <div className="absolute -right-4 -top-4 text-zinc-100 text-[180px] font-black leading-none select-none group-hover:text-[#ff8c00] group-hover:opacity-10 transition-all">UX</div>
+                <div className="absolute -right-4 -top-4 text-zinc-100 text-[180px] font-black leading-none select-none group-hover:text-brand group-hover:opacity-10 transition-all">UX</div>
                 <p className="text-[10px] font-black tracking-widest text-zinc-400 mb-12 uppercase">Internal Manuscript v1.0</p>
                 <div className="space-y-6 relative z-10">
                    <div className="h-2 w-16 bg-zinc-900" />
@@ -79,7 +79,7 @@ const Home: React.FC<HomeProps> = ({ content }) => {
       {/* Chapter Breakdown Section */}
       <section id="toc" className="max-w-7xl mx-auto px-6 py-32 scroll-mt-20">
         <div className="mb-24">
-          <h2 className="text-xs font-black tracking-[0.3em] text-[#ff8c00] uppercase mb-4">Table of Contents</h2>
+          <h2 className="text-xs font-black tracking-[0.3em] text-brand uppercase mb-4">Table of Contents</h2>
           <h3 className="text-6xl font-black tracking-tighter uppercase">The Detailed Breakdown</h3>
         </div>
         
@@ -94,11 +94,11 @@ const Home: React.FC<HomeProps> = ({ content }) => {
                   <li key={chapter.id} className="group">
                     <a href={`#/chapter/${chapter.id}`} className="block">
                       <div className="flex gap-6 items-start">
-                        <span className="text-4xl font-black text-zinc-100 group-hover:text-[#ff8c00] transition-colors leading-none pt-1 flex-shrink-0 w-12">
+                        <span className="text-4xl font-black text-zinc-100 group-hover:text-brand transition-colors leading-none pt-1 flex-shrink-0 w-12">
                           {chapter.number.toString().padStart(2, '0')}
                         </span>
-                        <div className="border-l border-zinc-100 pl-6 group-hover:border-[#ff8c00] transition-colors">
-                          <h5 className="font-black text-xl group-hover:text-[#ff8c00] transition-colors mb-3 leading-tight tracking-tight uppercase">
+                        <div className="border-l border-zinc-100 pl-6 group-hover:border-brand transition-colors">
+                          <h5 className="font-black text-xl group-hover:text-brand transition-colors mb-3 leading-tight tracking-tight uppercase">
                             {chapter.title}
                           </h5>
                           <div className="flex items-center gap-3">
@@ -106,7 +106,7 @@ const Home: React.FC<HomeProps> = ({ content }) => {
                               {chapter.sections.length} Key Lessons
                             </span>
                             <div className="w-1 h-1 bg-zinc-200 rounded-full" />
-                            <span className="text-[10px] font-black text-[#ff8c00] uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+                            <span className="text-[10px] font-black text-brand uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
                               Read Chapter →
                             </span>
                           </div>
@@ -130,17 +130,17 @@ const Home: React.FC<HomeProps> = ({ content }) => {
            </p>
            <div className="flex justify-center gap-8">
               <div className="text-left">
-                 <p className="text-[10px] font-black text-[#ff8c00] uppercase mb-2">Word Count</p>
+                 <p className="text-[10px] font-black text-brand uppercase mb-2">Word Count</p>
                  <p className="text-2xl font-bold tracking-tighter">45,000+</p>
               </div>
               <div className="w-[1px] bg-zinc-800" />
               <div className="text-left">
-                 <p className="text-[10px] font-black text-[#ff8c00] uppercase mb-2">Last Updated</p>
+                 <p className="text-[10px] font-black text-brand uppercase mb-2">Last Updated</p>
                  <p className="text-2xl font-bold tracking-tighter">2025</p>
               </div>
               <div className="w-[1px] bg-zinc-800" />
               <div className="text-left">
-                 <p className="text-[10px] font-black text-[#ff8c00] uppercase mb-2">License</p>
+                 <p className="text-[10px] font-black text-brand uppercase mb-2">License</p>
                  <p className="text-2xl font-bold tracking-tighter">Open Access</p>
               </div>
            </div>

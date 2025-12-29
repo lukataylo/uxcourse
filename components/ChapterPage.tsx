@@ -65,7 +65,7 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
           {/* Chapter Header */}
           <div className="mb-32 animate-fade-in">
             <div className="flex items-center gap-4 mb-8">
-              <span className="text-[#ff8c00] font-black text-[10px] tracking-[0.2em] uppercase border-2 border-[#ff8c00] px-3 py-1 rounded-none">
+              <span className="text-brand font-black text-[10px] tracking-[0.2em] uppercase border-2 border-brand px-3 py-1 rounded-none">
                 Chapter {chapter.number}
               </span>
               <div className="h-[1px] flex-1 bg-zinc-100" />
@@ -86,7 +86,7 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
                 className="scroll-mt-24 group"
               >
                 <div className="flex items-center gap-6 mb-12">
-                   <div className="w-2 h-2 bg-[#ff8c00] rounded-none group-hover:rotate-45 transition-transform duration-500" />
+                   <div className="w-2 h-2 bg-brand rounded-none group-hover:rotate-45 transition-transform duration-500" />
                    <h2 className="text-4xl font-black tracking-tight uppercase leading-none">{section.title}</h2>
                 </div>
                 
@@ -103,9 +103,9 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
               <div className="flex flex-col gap-4 text-center md:text-left">
                  <span className="text-[10px] font-black text-zinc-300 uppercase tracking-[0.3em]">Up Next</span>
                  {nextChapter ? (
-                    <a href={`#/chapter/${nextChapter.id}`} className="text-3xl md:text-4xl font-black hover:text-[#ff8c00] transition-all tracking-tighter uppercase group flex items-center gap-4">
+                    <a href={`#/chapter/${nextChapter.id}`} className="text-3xl md:text-4xl font-black hover:text-brand transition-all tracking-tighter uppercase group flex items-center gap-4">
                       <span className="group-hover:translate-x-2 transition-transform">{nextChapter.number}. {nextChapter.title}</span>
-                      <span className="text-[#ff8c00]">→</span>
+                      <span className="text-brand">→</span>
                     </a>
                  ) : (
                     <span className="text-4xl font-black text-zinc-200 uppercase tracking-tighter">End of Manuscript</span>
@@ -124,7 +124,7 @@ const ChapterPage: React.FC<ChapterPageProps> = ({ chapter, allChapters }) => {
                 {nextChapter && (
                   <a 
                     href={`#/chapter/${nextChapter.id}`} 
-                    className="flex-1 md:flex-none text-center text-[10px] font-black tracking-widest uppercase px-10 py-5 bg-[#ff8c00] text-white hover:bg-black transition-all shadow-lg shadow-orange-100 hover:shadow-zinc-200"
+                    className="flex-1 md:flex-none text-center text-[10px] font-black tracking-widest uppercase px-10 py-5 bg-brand text-white hover:bg-black transition-all shadow-lg shadow-orange-100 hover:shadow-zinc-200"
                   >
                     Continue
                   </a>

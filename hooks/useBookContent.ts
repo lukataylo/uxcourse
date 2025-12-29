@@ -22,18 +22,48 @@ const defaultContent: BookContent = {
   appendices: []
 };
 
+const LOAD_TIMEOUT_MS = 15000;
+
+async function fetchWithValidation<T>(url: string, parseAs: 'json' | 'text'): Promise<T> {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`Failed to load ${url}: ${res.status} ${res.statusText}`);
+  }
+  return parseAs === 'json' ? res.json() : res.text();
+}
+
 export function useBookContent() {
   const [content, setContent] = useState<BookContent>(defaultContent);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    Promise.all([
-      fetch('/content/homepage.json').then(res => res.json()) as Promise<HomepageData>,
-      fetch('/content/book.md').then(res => res.text()),
-      fetch('/content/appendices.json').then(res => res.json()) as Promise<AppendicesData>
-    ])
-      .then(([homepage, bookMarkdown, appendices]) => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+    let isCancelled = false;
+
+    const loadContent = async () => {
+      try {
+        const timeoutPromise = new Promise<never>((_, reject) => {
+          timeoutId = setTimeout(() => {
+            reject(new Error('Content loading timed out. Please refresh the page.'));
+          }, LOAD_TIMEOUT_MS);
+        });
+
+        const fetchPromise = Promise.all([
+          fetchWithValidation<HomepageData>('/content/homepage.json', 'json'),
+          fetchWithValidation<string>('/content/book.md', 'text'),
+          fetchWithValidation<AppendicesData>('/content/appendices.json', 'json')
+        ]);
+
+        const [homepage, bookMarkdown, appendices] = await Promise.race([
+          fetchPromise,
+          timeoutPromise
+        ]);
+
+        clearTimeout(timeoutId);
+
+        if (isCancelled) return;
+
         const parts = parseBookMarkdown(bookMarkdown);
 
         setContent({
@@ -45,12 +75,20 @@ export function useBookContent() {
           appendices: appendices.items
         });
         setLoading(false);
-      })
-      .catch(err => {
+      } catch (err) {
+        if (isCancelled) return;
         console.error('Failed to load content:', err);
-        setError(err.message);
+        setError(err instanceof Error ? err.message : 'Failed to load content. Please try again.');
         setLoading(false);
-      });
+      }
+    };
+
+    loadContent();
+
+    return () => {
+      isCancelled = true;
+      clearTimeout(timeoutId);
+    };
   }, []);
 
   return { content, loading, error };
