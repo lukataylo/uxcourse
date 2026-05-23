@@ -126,9 +126,25 @@ export type GenerationStatus =
   | "ready"
   | "failed";
 
+export type RefundStatus = "none" | "requested" | "approved" | "declined";
+
+/**
+ * Generation is the lifecycle wrapper around a Course.
+ *
+ * The fields below the `course?` field (refund / email / download tracking)
+ * are deliberately app-only — they describe purchase + delivery lifecycle, not
+ * pedagogical content. They MUST NOT be added to `pipeline/types.ts`. The
+ * pipeline only ever sees a LearnerProfile and returns a Course; everything
+ * else is the storefront's concern.
+ */
 export interface Generation {
   id: string;
   profile: LearnerProfile;
+  /**
+   * Buyer email (normalized at write time — see normalizeEmail in storage).
+   * Optional only because legacy records pre-date the field.
+   */
+  email?: string;
   status: GenerationStatus;
   /** 0..1 — progress for the status screen. */
   progress: number;
@@ -142,4 +158,20 @@ export interface Generation {
   statusMessage?: string;
   createdAt: string;
   updatedAt: string;
+
+  // --- app-only lifecycle metadata (not pipeline concerns) ---
+
+  /** True if buyer had a prior refunded purchase under the same normalized email. */
+  priorRefund: boolean;
+  /** Refund workflow state. */
+  refundStatus: RefundStatus;
+  refundRequestedAt?: string;
+  refundReason?: string;
+  refundedAt?: string;
+  /** ISO timestamps appended each time the course is downloaded or printed. */
+  downloadsAt: string[];
+  /** When the initial course-ready email was successfully delivered, or null. */
+  emailDeliveredAt: string | null;
+  /** When the last email (any kind) was sent — used for rate-limiting resends. */
+  emailLastSentAt?: string;
 }

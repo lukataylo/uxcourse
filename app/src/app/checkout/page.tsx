@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { getGeneration } from "@/lib/storage";
+import { findGenerationsByEmail, getGeneration } from "@/lib/storage";
 import { priceLabel } from "@/lib/stripe";
 import { Button } from "@/components/ui/button";
 import { Lock } from "lucide-react";
@@ -23,6 +23,27 @@ export default async function CheckoutPage({
 
   const gen = await getGeneration(generationId);
   if (!gen) redirect("/start");
+
+  // One-purchase-per-email guard on the checkout step as well. If an earlier
+  // generation under the same email already moved past pending, route the
+  // buyer there instead of charging twice.
+  if (gen.email) {
+    const priors = await findGenerationsByEmail(gen.email);
+    const activeOther = priors.find(
+      (g) =>
+        g.id !== gen.id &&
+        g.refundStatus !== "approved" &&
+        (g.status === "paid" ||
+          g.status === "generating" ||
+          g.status === "ready"),
+    );
+    if (activeOther) {
+      if (activeOther.status === "ready") {
+        redirect(`/course/${activeOther.id}?existing=1`);
+      }
+      redirect(`/generating/${activeOther.id}?existing=1`);
+    }
+  }
 
   return (
     <div className="container py-20 max-w-xl">
@@ -72,6 +93,12 @@ export default async function CheckoutPage({
             <span>Time / week</span>
             <span className="text-foreground">{gen.profile.timeBudgetHours} hrs</span>
           </div>
+          {gen.email ? (
+            <div className="flex justify-between">
+              <span>Email</span>
+              <span className="text-foreground">{gen.email}</span>
+            </div>
+          ) : null}
         </div>
         <form action={completeMockPayment} className="p-6 pt-0">
           <input type="hidden" name="generationId" value={gen.id} />
@@ -84,6 +111,22 @@ export default async function CheckoutPage({
             No card will be charged. This is a development stub.
           </p>
         </form>
+      </div>
+
+      <div className="mt-8 rounded-md border border-border bg-muted/30 p-5 text-sm leading-relaxed">
+        <p className="font-medium text-foreground">Refund policy</p>
+        <p className="mt-2 text-muted-foreground">
+          Full refund within 14 days, no questions asked. We do reserve the
+          right to decline refunds after multiple downloads or repeated refund
+          requests under the same email.
+        </p>
+        <p className="mt-2 text-muted-foreground">
+          To request one later, visit{" "}
+          <Link href="/refund" className="underline hover:text-foreground">
+            /refund
+          </Link>
+          .
+        </p>
       </div>
 
       <p className="mt-8 text-sm text-muted-foreground">

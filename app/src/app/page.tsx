@@ -132,8 +132,16 @@ export default function LandingPage() {
           </h2>
           <p className="mt-5 text-muted-foreground leading-relaxed">
             No subscription, no seat licensing, no upsell. One course, generated for
-            you, delivered in minutes. If it doesn't land, email us and we'll
-            refund — no form to fill.
+            you, delivered in minutes.
+          </p>
+          <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+            <span className="text-foreground">Refunds:</span> full refund within
+            14 days, no questions asked — request one at{" "}
+            <Link href="/refund" className="underline hover:text-foreground">
+              /refund
+            </Link>
+            . We do reserve the right to decline refunds after multiple
+            downloads or repeated refund requests.
           </p>
           <Link
             href="/start"

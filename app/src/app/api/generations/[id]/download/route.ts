@@ -1,4 +1,4 @@
-import { getGeneration } from "@/lib/storage";
+import { getGeneration, recordDownload } from "@/lib/storage";
 import { courseToMarkdown } from "@/lib/markdown";
 
 export async function GET(
@@ -17,6 +17,10 @@ export async function GET(
   if (format === "md") {
     const md = courseToMarkdown(gen.course);
     const safeTitle = gen.course.title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+
+    // Track the download — best-effort, don't block the response on it.
+    void recordDownload(id);
+
     return new Response(md, {
       headers: {
         "Content-Type": "text/markdown; charset=utf-8",

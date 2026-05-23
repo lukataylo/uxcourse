@@ -78,29 +78,84 @@ export function renderMarkdown(md: string): string {
   return out.join("\n");
 }
 
-export function courseToMarkdown(course: {
+/**
+ * Markdown export. Mirrors the print output's citation numbering so the
+ * downloaded `.md` is self-contained: inline `[#source_id]` markers become
+ * `[N]` and a numbered "References" section appears at the end.
+ *
+ * Numbering is course-wide (modules → lessons → bibliography fold-in), built
+ * the same way as `print-helpers.ts#buildCitationMap`. We don't import that
+ * module to avoid pulling React/JSX deps into the markdown path; the logic
+ * is tiny and the duplication is cheap.
+ */
+interface MdCitation {
+  id: string;
+  title: string;
+  author?: string;
+  url: string;
+  sourceType?: string;
+}
+
+interface MdLesson {
+  title: string;
+  summary: string;
+  body: string;
+  estimatedMinutes: number;
+  citations: MdCitation[];
+  exercises: Array<{ prompt: string; estimatedMinutes: number; rubric?: string }>;
+}
+
+interface MdModule {
+  title: string;
+  summary: string;
+  lessons: MdLesson[];
+}
+
+interface MdCourse {
   title: string;
   subtitle: string;
   intro: string;
-  modules: Array<{
-    title: string;
-    summary: string;
-    lessons: Array<{
-      title: string;
-      summary: string;
-      body: string;
-      estimatedMinutes: number;
-      citations: Array<{ title: string; author?: string; url: string }>;
-      exercises: Array<{ prompt: string; estimatedMinutes: number; rubric?: string }>;
-    }>;
-  }>;
-  bibliography: Array<{ title: string; author?: string; url: string }>;
-}): string {
+  modules: MdModule[];
+  bibliography: MdCitation[];
+}
+
+function buildMdCitationMap(course: MdCourse): {
+  byId: Record<string, number>;
+  ordered: Array<MdCitation & { number: number }>;
+} {
+  const byId: Record<string, number> = {};
+  const ordered: Array<MdCitation & { number: number }> = [];
+  const add = (c: MdCitation) => {
+    if (byId[c.id]) return;
+    const n = ordered.length + 1;
+    byId[c.id] = n;
+    ordered.push({ ...c, number: n });
+  };
+  for (const m of course.modules) {
+    for (const l of m.lessons) {
+      for (const c of l.citations) add(c);
+    }
+  }
+  for (const c of course.bibliography) add(c);
+  return { byId, ordered };
+}
+
+function applyMdCitations(body: string, byId: Record<string, number>): string {
+  return body.replace(/\[#([a-zA-Z0-9_\-./:]+)\]/g, (raw, id: string) => {
+    const n = byId[id];
+    return n ? `[${n}]` : raw;
+  });
+}
+
+export function courseToMarkdown(course: MdCourse): string {
+  const { byId, ordered } = buildMdCitationMap(course);
+  const sub = (s: string) => applyMdCitations(s, byId);
+
   const parts: string[] = [];
   parts.push(`# ${course.title}`);
   parts.push(`*${course.subtitle}*`);
   parts.push("");
-  parts.push(course.intro);
+  parts.push(sub(course.intro));
   parts.push("");
   for (const m of course.modules) {
     parts.push(`## ${m.title}`);
@@ -110,7 +165,7 @@ export function courseToMarkdown(course: {
       parts.push(`### ${l.title}`);
       parts.push(`_${l.summary} — ~${l.estimatedMinutes} min_`);
       parts.push("");
-      parts.push(l.body);
+      parts.push(sub(l.body));
       parts.push("");
       if (l.exercises.length) {
         parts.push(`**Exercises**`);
@@ -120,17 +175,27 @@ export function courseToMarkdown(course: {
         parts.push("");
       }
       if (l.citations.length) {
-        parts.push(`**Citations**`);
+        parts.push(`**Sources**`);
         for (const c of l.citations) {
-          parts.push(`- [${c.title}${c.author ? ` — ${c.author}` : ""}](${c.url})`);
+          const n = byId[c.id];
+          const prefix = n ? `[${n}] ` : "";
+          parts.push(`- ${prefix}[${c.title}${c.author ? ` — ${c.author}` : ""}](${c.url})`);
         }
         parts.push("");
       }
     }
   }
-  parts.push(`## Bibliography`);
-  for (const c of course.bibliography) {
-    parts.push(`- [${c.title}${c.author ? ` — ${c.author}` : ""}](${c.url})`);
+
+  if (ordered.length) {
+    parts.push(`## References`);
+    parts.push("");
+    for (const c of ordered) {
+      const author = c.author ? ` — ${c.author}` : "";
+      const stype = c.sourceType ? ` _(${c.sourceType})_` : "";
+      parts.push(`${c.number}. *${c.title}*${author}${stype}  `);
+      parts.push(`   <${c.url}>`);
+    }
   }
+
   return parts.join("\n");
 }

@@ -3,6 +3,7 @@
 import { redirect } from "next/navigation";
 import { updateGeneration, getGeneration } from "@/lib/storage";
 import { generateCourse } from "@/lib/courseGenerator";
+import { sendCourseReady } from "@/lib/email";
 
 /**
  * Server action that simulates a successful Stripe payment, then kicks off
@@ -59,6 +60,28 @@ async function runGeneration(generationId: string): Promise<void> {
       course,
       statusMessage: "Course ready",
     });
+
+    // Best-effort email. Generation success MUST NOT depend on this — the
+    // course is ready regardless. We record emailDeliveredAt as the ISO
+    // timestamp on success and explicitly null otherwise so the admin view
+    // can spot delivery failures.
+    if (gen.email) {
+      try {
+        const res = await sendCourseReady(gen.email, course.id, course.title);
+        const now = new Date().toISOString();
+        await updateGeneration(generationId, {
+          emailDeliveredAt: res.ok ? now : null,
+          emailLastSentAt: now,
+        });
+      } catch (mailErr) {
+        // Swallow — generation stays "ready".
+        // eslint-disable-next-line no-console
+        console.warn("[checkout] course-ready email threw", mailErr);
+        await updateGeneration(generationId, { emailDeliveredAt: null });
+      }
+    } else {
+      await updateGeneration(generationId, { emailDeliveredAt: null });
+    }
   } catch (err) {
     await updateGeneration(generationId, {
       status: "failed",

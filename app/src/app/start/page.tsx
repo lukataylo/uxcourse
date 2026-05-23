@@ -44,6 +44,19 @@ export default function StartPage() {
       </p>
 
       <form action={submitProfile} className="mt-12 space-y-10">
+        <Field
+          label="Email"
+          hint="Where we send your course link and any refund correspondence."
+        >
+          <Input
+            name="email"
+            type="email"
+            required
+            placeholder="you@work.com"
+            autoComplete="email"
+          />
+        </Field>
+
         <Field label="Your role" hint="e.g. Senior product designer, design engineer, design manager">
           <Input
             name="role"
