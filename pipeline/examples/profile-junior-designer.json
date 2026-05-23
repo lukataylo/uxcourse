@@ -1,0 +1,11 @@
+{
+  "id": "user_demo_junior_designer",
+  "role": "Product Designer",
+  "seniority": "junior",
+  "currentAIUsage": "experimenting",
+  "focusAreas": ["prompting", "AI in design tools", "critique"],
+  "timeBudgetHours": 4,
+  "learningStyle": "hands-on",
+  "portfolioUrl": "https://example.com/portfolio",
+  "goal": "Use AI as a daily design collaborator without becoming dependent on it."
+}

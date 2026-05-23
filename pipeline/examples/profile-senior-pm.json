@@ -1,0 +1,10 @@
+{
+  "id": "user_demo_senior_pm",
+  "role": "Senior Product Manager",
+  "seniority": "senior",
+  "currentAIUsage": "regular",
+  "focusAreas": ["AI ethics", "research synthesis", "shipping AI features responsibly"],
+  "timeBudgetHours": 6,
+  "learningStyle": "case-study",
+  "goal": "Lead my team's first AI-feature launch without compromising on user trust."
+}
