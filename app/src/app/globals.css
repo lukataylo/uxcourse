@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 30% 98%;
+    --foreground: 220 18% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 18% 12%;
+
+    --primary: 220 18% 12%;
+    --primary-foreground: 40 30% 98%;
+
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 220 18% 12%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 42%;
+
+    --accent: 14 90% 53%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 70% 45%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 220 18% 12%;
+
+    --radius: 0.5rem;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "ss01", "cv11";
+  }
+
+  /* Editorial type rhythm */
+  .prose-editorial h1 {
+    @apply text-4xl md:text-5xl font-semibold tracking-tight;
+  }
+  .prose-editorial h2 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight mt-12 mb-4;
+  }
+  .prose-editorial h3 {
+    @apply text-xl font-semibold tracking-tight mt-8 mb-3;
+  }
+  .prose-editorial p {
+    @apply leading-relaxed text-foreground/85;
+  }
+}
+
+/* Print stylesheet — used by the "Download as PDF" affordance */
+@media print {
+  nav,
+  .no-print {
+    display: none !important;
+  }
+  body {
+    background: #fff;
+    color: #000;
+  }
+  .print-container {
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  a {
+    color: #000;
+    text-decoration: underline;
+  }
+  h1, h2, h3 {
+    break-after: avoid;
+  }
+}
