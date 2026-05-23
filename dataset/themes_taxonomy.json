@@ -1,0 +1,235 @@
+{
+  "$schema_version": "1.0",
+  "description": "Canonical theme tags clustered into buckets. Each tag has an id (use this in items.themes), a label, and aliases used by the ingest script for best-effort string matching against raw source themes.",
+  "buckets": [
+    {
+      "id": "generative-ui",
+      "label": "Generative & adaptive UI",
+      "tags": [
+        {
+          "id": "generative-ui",
+          "label": "Generative UI",
+          "aliases": ["generative ui", "genui", "ai-generated interface", "ai generated interfaces", "per-user", "individualized interface", "real-time ui", "real time ui"]
+        },
+        {
+          "id": "adaptive-interfaces",
+          "label": "Adaptive interfaces",
+          "aliases": ["adaptive interface", "adaptive intelligent ux", "evolving systems", "personalization", "personalized interfaces", "context-aware"]
+        },
+        {
+          "id": "agentic-ux",
+          "label": "Agentic UX & agent design",
+          "aliases": ["agent", "agents", "agentic", "agentic design", "agentic ux", "agentic systems", "agent orchestration", "ai orchestrator", "agent builder", "agentic experience"]
+        },
+        {
+          "id": "beyond-chat",
+          "label": "Beyond chat / post-chat interfaces",
+          "aliases": ["beyond chat", "post-chat", "post chat", "beyond conversational", "chat is wrong", "chatbots", "anti-universal-textbox", "latent space", "latent-space", "direct manipulation"]
+        },
+        {
+          "id": "sentient-design",
+          "label": "Sentient design",
+          "aliases": ["sentient design", "sentient triangle", "casual intelligence", "intelligent interfaces"]
+        }
+      ]
+    },
+    {
+      "id": "design-systems",
+      "label": "Design systems & AI",
+      "tags": [
+        {
+          "id": "design-systems",
+          "label": "Design systems as AI context",
+          "aliases": ["design system", "design systems", "tokens", "atomic design", "code connect", "system as context", "ds as context", "component-level ai affordances", "ai-generated content indicator", "gemini-aware components"]
+        },
+        {
+          "id": "agentic-design-systems",
+          "label": "Agentic design systems",
+          "aliases": ["agentic design systems", "agents composing ui", "components for agents"]
+        },
+        {
+          "id": "design-to-code",
+          "label": "Design-to-code & handoff",
+          "aliases": ["design-to-code", "design to code", "handoff", "code handoff", "figma to code", "figma mcp", "mcp server", "code-gen", "code generation"]
+        }
+      ]
+    },
+    {
+      "id": "craft",
+      "label": "Craft, taste & quality",
+      "tags": [
+        {
+          "id": "craft",
+          "label": "Craft as the differentiator",
+          "aliases": ["craft", "quality", "craftsmanship", "moat", "craft as moat", "preserving craft", "craft crisis"]
+        },
+        {
+          "id": "taste",
+          "label": "Taste & curation",
+          "aliases": ["taste", "curation", "curator", "curators", "judgment", "discernment", "point of view", "developing taste"]
+        },
+        {
+          "id": "quality-bar",
+          "label": "Quality bar in AI-assisted work",
+          "aliases": ["quality bar", "ai quality", "quality coup", "averaging", "sameness", "slop", "mediocrity", "gray puree", "work slop", "language of critique", "rigor", "outcomes"]
+        }
+      ]
+    },
+    {
+      "id": "ethics",
+      "label": "Ethics, dark patterns & labor",
+      "tags": [
+        {
+          "id": "ai-ethics",
+          "label": "AI ethics & responsibility",
+          "aliases": ["ethics", "responsible ai", "responsibility", "ethical adoption", "moral obligation", "dark patterns", "responsible use", "moral stance"]
+        },
+        {
+          "id": "labor",
+          "label": "Labor, unions & displacement",
+          "aliases": ["labor", "unionize", "union", "displacement", "deskilling", "job replacement", "training data theft", "creator economy", "stocking frames"]
+        },
+        {
+          "id": "trust-transparency",
+          "label": "Trust, transparency & provenance",
+          "aliases": ["trust", "transparency", "provenance", "citations", "confidence indicators", "ai disclosure", "ai-generated content indicator", "interpassivity"]
+        },
+        {
+          "id": "accessibility",
+          "label": "Accessibility & inclusion",
+          "aliases": ["accessibility", "a11y", "inclusion", "inclusive", "diverse imagery", "fairness"]
+        },
+        {
+          "id": "dark-forest",
+          "label": "AI content flood / dark forest",
+          "aliases": ["dark forest", "ai slop", "ai-generated content flood", "content authenticity", "proof of human"]
+        }
+      ]
+    },
+    {
+      "id": "research",
+      "label": "AI for UX research",
+      "tags": [
+        {
+          "id": "ai-for-research",
+          "label": "AI for UX research",
+          "aliases": ["ux research", "ai research", "research synthesis", "synthesis", "ai-led research", "ai for synthesis", "running research with ai", "moderation"]
+        },
+        {
+          "id": "evals",
+          "label": "Evals & evaluation",
+          "aliases": ["evals", "evaluation", "ux audit", "error rate", "testing chatgpt"]
+        }
+      ]
+    },
+    {
+      "id": "career",
+      "label": "Career, skills & education",
+      "tags": [
+        {
+          "id": "skills-redefinition",
+          "label": "Skill redefinition & reskilling",
+          "aliases": ["skill redefinition", "reskilling", "redefine your design skills", "skills shift", "new skills", "career", "career risk", "career advancement", "role evolution", "role erosion", "role blur", "what designers must do", "where designers fit", "skills"]
+        },
+        {
+          "id": "design-engineer",
+          "label": "Design engineer / role blur",
+          "aliases": ["design engineer", "vibe coding", "vibe design", "role blur", "design and engineering", "full-stack designer", "designer-developer", "design/engineering blur", "design engineering blur", "engineers forcing role"]
+        },
+        {
+          "id": "design-leadership",
+          "label": "Design leadership in the AI era",
+          "aliases": ["design leadership", "leadership", "seize the narrative", "managing ai", "managing people to managing ai", "design org", "ux leadership"]
+        },
+        {
+          "id": "education",
+          "label": "Design education",
+          "aliases": ["design education", "teaching taste", "parsons", "not generated", "education"]
+        },
+        {
+          "id": "curator-mindset",
+          "label": "Makers to curators",
+          "aliases": ["makers to curators", "from creator to curator", "curator and provoker"]
+        }
+      ]
+    },
+    {
+      "id": "tooling",
+      "label": "Tooling & workflow",
+      "tags": [
+        {
+          "id": "ai-workflow",
+          "label": "AI in the design workflow",
+          "aliases": ["workflow", "ai workflow", "ai in design workflow", "creative workflow", "fast-track workflows", "designops", "ai-powered actions", "prompting", "advanced prompting", "prompt engineering", "tool stacks", "ai in production design"]
+        },
+        {
+          "id": "prototyping",
+          "label": "Prototyping with AI",
+          "aliases": ["prototyping", "prototype generation", "prompt-to-prototype", "prototyping at speed", "make designs", "figma make", "v0", "cursor", "claude code", "speculative prototypes", "speculative design"]
+        },
+        {
+          "id": "design-to-code-workflow",
+          "label": "Design-to-code workflow",
+          "aliases": ["round-trip", "round trip", "figma to claude", "designers as developers"]
+        },
+        {
+          "id": "tedium-reduction",
+          "label": "Tedium reduction & augmentation",
+          "aliases": ["tedium", "tedium reduction", "augmentation", "augment", "augmenting imagination", "productivity", "ai serves the story", "abstraction", "higher level design", "systems thinking"]
+        }
+      ]
+    },
+    {
+      "id": "patterns",
+      "label": "Trust, motion, metaphor & patterns",
+      "tags": [
+        {
+          "id": "ai-patterns",
+          "label": "UX patterns for AI",
+          "aliases": ["ux patterns", "ai design patterns", "design patterns for ai", "pattern library", "patterns beyond chat", "structured presets", "daemons", "clustering", "style lenses", "temperature controls", "sensible defaults", "framework for ai", "ai in ux", "applying ai", "design heuristics", "ai design heuristics", "ai/ux", "ux for ai", "llm-specific heuristics", "ai feature", "ai features"]
+        },
+        {
+          "id": "motion",
+          "label": "Motion & liveliness",
+          "aliases": ["motion", "intelligent things attribute liveliness", "lifelike interfaces", "conversational design"]
+        },
+        {
+          "id": "metaphor",
+          "label": "Metaphors for AI",
+          "aliases": ["metaphor", "metaphors", "copilot", "assistant", "collaborator", "creative partner", "junior teammate", "junior developer", "tennis partner", "ai as material"]
+        },
+        {
+          "id": "probabilistic-design",
+          "label": "Designing for probabilistic / uncertain systems",
+          "aliases": ["probabilistic", "uncertainty", "design for ambiguity", "ambiguity", "likelihoods", "non-deterministic", "squishy", "shoggoth", "hallucinations", "hallucination", "alignment", "alignment as ux", "compositionality", "reasoning engines", "squish vs structure"]
+        },
+        {
+          "id": "spatial",
+          "label": "Spatial / AR / VR computing",
+          "aliases": ["spatial", "spatial intelligence", "spatial computing", "visionos", "ar/vr", "ar vr"]
+        }
+      ]
+    },
+    {
+      "id": "business",
+      "label": "Business, strategy & product",
+      "tags": [
+        {
+          "id": "ai-strategy",
+          "label": "AI strategy & adoption",
+          "aliases": ["adoption", "ai adoption", "ai strategy", "playbook", "ai playbook", "enterprise ai", "two-pizza teams", "maturity curve", "ai fatigue", "post-hype", "scoping ai features", "onboarding to ai", "getting started"]
+        },
+        {
+          "id": "human-centered-ai",
+          "label": "Human-centered AI",
+          "aliases": ["human-centered ai", "human centered ai", "humanity-centered", "human centered design", "hcd", "human-in-the-loop", "humanistic design", "human-centered guardrails", "human needs", "human–machine entanglement", "human machine entanglement", "designer agency"]
+        },
+        {
+          "id": "product-direction",
+          "label": "Product direction & soloware",
+          "aliases": ["soloware", "build for yourself", "selfish apps", "time to value", "cambrian explosion", "ai-native", "ai native designers", "feedback loop", "orchestration", "pixel-pushing", "founder-mode", "founding-designer"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://uxcourse.com/dataset/schema.json",
+  "title": "UX x AI Source Item",
+  "description": "A single unit of source material (talk, episode, article, conference session, or thought-leader stance) used as input for course generation.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "title", "url", "themes", "source_quality", "verified"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "description": "Stable kebab-case slug, prefixed by type (e.g. 'yt-config-2024-feifei-li').",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "type": {
+      "type": "string",
+      "enum": [
+        "youtube",
+        "podcast",
+        "article",
+        "conference_talk",
+        "thought_leader_stance"
+      ]
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri",
+      "description": "Primary canonical URL for the item."
+    },
+    "secondary_urls": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" },
+      "default": []
+    },
+    "date": {
+      "type": ["string", "null"],
+      "description": "ISO-8601 date string. May be year-only ('2024') or year-month ('2024-08') or full ('2024-08-12'). Pair with date_precision."
+    },
+    "date_precision": {
+      "type": ["string", "null"],
+      "enum": ["day", "month", "year", "approximate", null],
+      "description": "How precisely the date is known. 'approximate' means rough season/year only."
+    },
+    "authors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": { "type": "string" },
+          "role": { "type": ["string", "null"] },
+          "org": { "type": ["string", "null"] }
+        }
+      },
+      "default": []
+    },
+    "publisher": {
+      "type": ["string", "null"],
+      "description": "Channel, podcast name, publication, or conference."
+    },
+    "format": {
+      "type": ["string", "null"],
+      "description": "Free-text format label such as 'keynote', 'interview', 'essay', 'panel', 'case-study', 'workshop', 'book', 'survey-report'."
+    },
+    "duration_minutes": {
+      "type": ["number", "null"],
+      "description": "Approximate runtime in minutes for audio/video items."
+    },
+    "themes": {
+      "type": "array",
+      "description": "Canonical theme tag IDs from themes_taxonomy.json. Use for retrieval.",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "raw_themes": {
+      "type": "array",
+      "description": "Original free-text theme strings as written in the source markdown, kept for traceability.",
+      "items": { "type": "string" },
+      "default": []
+    },
+    "quotes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["text"],
+        "properties": {
+          "text": { "type": "string" },
+          "attribution": { "type": ["string", "null"] }
+        }
+      },
+      "default": []
+    },
+    "summary": {
+      "type": ["string", "null"],
+      "description": "1-3 sentence editorial summary. May be the source's own thesis line."
+    },
+    "stance_tags": {
+      "type": "array",
+      "description": "Camp/posture tags useful for balancing course modules across viewpoints.",
+      "items": {
+        "type": "string",
+        "enum": [
+          "optimist",
+          "skeptic",
+          "pragmatist",
+          "craft-first",
+          "displacement-worried",
+          "labor-advocate",
+          "ethics",
+          "infrastructure-builder",
+          "researcher-of-the-medium",
+          "educator"
+        ]
+      },
+      "default": []
+    },
+    "source_quality": {
+      "type": "string",
+      "enum": ["high", "medium", "low"],
+      "description": "Editorial substance rating, not popularity. 'high' = primary, well-developed argument; 'medium' = solid but secondary; 'low' = passing mention or thin source."
+    },
+    "verified": {
+      "type": "boolean",
+      "description": "Whether URL and date have been hand-checked. Defaults to false after ingest."
+    },
+    "raw_excerpt": {
+      "type": ["string", "null"],
+      "description": "The raw markdown rows or block this item was parsed from, for traceability."
+    },
+    "source_file": {
+      "type": ["string", "null"],
+      "description": "Which research/*.md the item came from."
+    }
+  }
+}
