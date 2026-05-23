@@ -71,6 +71,12 @@ function renderMarkdown(course: Course): string {
           "> **Active research area.** The dataset is thin here — treat this as orientation, not gospel.",
         );
       }
+      if (lesson.quality_warning) {
+        lines.push("");
+        lines.push(
+          `> **Quality warning:** \`${lesson.quality_warning}\` — this lesson failed citation validation after retries. Recommend regeneration.`,
+        );
+      }
       lines.push("");
       lines.push(lesson.body);
       lines.push("");
@@ -104,6 +110,18 @@ function renderMarkdown(course: Course): string {
   lines.push("**Rubric**");
   for (const r of course.capstone.rubric) lines.push(`- ${r}`);
   lines.push("");
+
+  if (course.qualityReport.lessonsWithWarnings > 0) {
+    lines.push("## Quality report");
+    lines.push("");
+    lines.push(
+      `${course.qualityReport.lessonsWithWarnings} of ${course.qualityReport.totalLessons} lessons shipped with a citation-quality warning:`,
+    );
+    for (const [k, n] of Object.entries(course.qualityReport.perWarningCounts)) {
+      if (n > 0) lines.push(`- \`${k}\`: ${n}`);
+    }
+    lines.push("");
+  }
 
   if (course.sourcesUsed.length > 0) {
     lines.push("## Sources");

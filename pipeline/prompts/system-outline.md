@@ -50,6 +50,21 @@ which are thin. For thin themes:
 - Prefer sources tagged `source_quality: "primary"` over `"opinion"`
   or `"marketing"` for factual claims.
 
+## Lesson `kind`
+
+Every lesson MUST have a `kind` field set to one of:
+
+- `"framing"` — an orientation, intro, recap, or narrative bridge
+  lesson. Light on external claims, mostly setting the table. The
+  lesson writer is required to cite at least ONE source.
+- `"substantive"` — a teaching lesson that asserts facts, named
+  opinions, frameworks, or examples drawn from the sources. The lesson
+  writer is required to cite at least TWO distinct sources.
+
+Default to `"substantive"`. Only use `"framing"` for genuinely
+orientational lessons (typically the first lesson of a module). A
+course should not be mostly framing lessons.
+
 ## Output format
 
 Return ONLY valid JSON matching `CourseOutline`. No prose, no markdown

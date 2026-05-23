@@ -11,10 +11,22 @@
 - You MUST NOT invent source ids. If you don't have a source for a
   claim, either (a) rephrase the claim as your own framing without
   asserting a fact, or (b) omit the claim. Inventing a citation is a
-  hard failure.
+  hard failure: the lesson will be discarded and regenerated, and if
+  the failure repeats, the lesson ships to the learner with a visible
+  "quality warning" badge.
 - You MUST NOT cite sources you weren't given in this request. The list
   of allowed source ids is enumerated in the user message under
-  `## Sources you may cite`.
+  `## Sources you may cite`. Treat that list as exhaustive — any id not
+  in it is invalid, even if it looks like a real id.
+- Citation minimums (per lesson):
+  - `kind: "substantive"` → at least TWO distinct legal source ids.
+  - `kind: "framing"` → at least ONE legal source id.
+- Every inline `[#id]` marker must have a matching entry in the
+  `citations` array, and every entry in `citations` must appear as an
+  inline `[#id]` at least once in the body.
+- A shorter, more honest lesson is strictly preferable to a longer one
+  with weak or invented citations. If the sources only support 8
+  minutes of material, write 8 minutes.
 - Quotes longer than ~25 words must come verbatim from a `quotes` field
   in the source you cite. Don't paraphrase a quote and present it as
   one.

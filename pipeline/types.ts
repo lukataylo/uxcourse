@@ -93,6 +93,13 @@ export interface LessonOutline {
   candidateSourceIds: string[];
   estimatedMinutes: number;
   /**
+   * Whether the lesson is a `framing` orientation piece (intros, recaps,
+   * narrative bridges) or a `substantive` one. Drives the minimum
+   * citation density check: `substantive` needs >= 2 distinct citations,
+   * `framing` needs >= 1.
+   */
+  kind: "framing" | "substantive";
+  /**
    * If true, this lesson covers a topic where the dataset is thin
    * (e.g. AI ethics, UX research). The lesson writer is instructed to
    * label it as an "active research area" and avoid invented sources.
@@ -116,6 +123,11 @@ export interface CourseOutline {
   flaggedGaps: string[];
 }
 
+export type LessonQualityWarning =
+  | "low_citation_density"
+  | "invalid_sources_stripped"
+  | "no_valid_sources";
+
 export interface Lesson {
   id: string;
   title: string;
@@ -125,6 +137,18 @@ export interface Lesson {
   exercises: Exercise[];
   estimatedMinutes: number;
   thinCoverage?: boolean;
+  /**
+   * Set if the lesson shipped with a citation-quality problem we
+   * couldn't fix in the retry loop. The UI uses this to badge the
+   * lesson for regeneration. Absent for healthy lessons.
+   */
+  quality_warning?: LessonQualityWarning;
+}
+
+export interface CourseQualityReport {
+  lessonsWithWarnings: number;
+  totalLessons: number;
+  perWarningCounts: Record<LessonQualityWarning, number>;
 }
 
 export interface Module {
@@ -156,6 +180,12 @@ export interface Course {
   /** Every source actually cited anywhere in the course, deduped. */
   sourcesUsed: SourceItem[];
   estimatedTotalMinutes: number;
+  /**
+   * Citation-quality rollup across all lessons in this course.
+   * Lessons with a `quality_warning` flag count here; the UI can show
+   * a "regenerate" affordance when this is non-zero.
+   */
+  qualityReport: CourseQualityReport;
   /** Diagnostic info — model versions, token counts, etc. */
   meta: {
     models: {
