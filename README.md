@@ -6,11 +6,11 @@ A comprehensive guide for junior and mid-career UX designers transitioning to AI
 
 ## About the Book
 
-Artificial intelligence is fundamentally reshaping the practice of UX design. Nearly half of UX designers have begun using AI to experiment with new design strategies, yet many find themselves uncertain about how to integrate these tools effectively into their work.
+AI moved from a suggestion in a sidebar to the thing that builds your prototype. This is a 2026 rewrite for that reality: designers describing an interface and getting working code back, research platforms that transcribe and tag sessions automatically, and a job market that has started sorting designers by judgment rather than by how fast they can push pixels.
 
-This guide is built on a simple premise: **AI will not replace UX designers, but designers who effectively leverage AI will have significant advantages over those who don't.**
+This guide is built on a simple premise: **AI will not replace UX designers, but it is quietly sorting the ones who can direct it from the ones who can't.**
 
-The goal is not to turn you into an AI engineer. Rather, it's to help you understand how AI can augment your existing skills, accelerate your workflows, and enable you to create better products for users.
+The goal is not to turn you into an AI engineer. It's to help you direct these tools well, know exactly where they fail (hallucinated research themes, sycophantic synthetic users, confidently broken code), and keep the judgment that the tools can't do — without becoming either a hype merchant or a doomer.
 
 ## What You'll Learn
 

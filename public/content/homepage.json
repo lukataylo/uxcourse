@@ -1,12 +1,12 @@
 {
   "title": "UX DESIGN IN THE ERA OF AI",
-  "subtitle": "A Comprehensive Guide for Designers",
-  "description": "From Research to Prototyping, Testing to Career Development. For Junior and Mid-Career UX Professionals Transitioning to AI-Enhanced Design Roles.",
+  "subtitle": "A Working Guide for Designers",
+  "description": "From Research to Prototyping, Testing to Career Development. For Junior and Mid-Career UX Professionals Learning to Work Alongside AI Without Losing the Plot.",
   "intro": [
-    "Artificial intelligence is fundamentally reshaping the practice of UX design. This is not hyperbole or speculation—it is already happening.",
-    "This guide was written specifically for junior and mid-career UX designers who recognize that AI represents both an opportunity and a challenge.",
-    "The premise of this guide is simple: AI will not replace UX designers, but designers who effectively leverage AI will have significant advantages over those who don't.",
-    "This book is organized into seven parts, each addressing a critical dimension of UX design in the AI era.",
-    "Throughout, you'll find practical exercises, real-world case studies, pro tips from practitioners, and key takeaways to reinforce your learning."
+    "AI moved from a suggestion in a sidebar to the thing that builds your prototype. This is a rewrite for that reality, current as of 2026.",
+    "It's written for junior and mid-career designers who want to direct these tools well without becoming either a hype merchant or a doomer.",
+    "The premise held up: AI won't replace UX designers, but it is quietly sorting the ones who can direct it from the ones who can't.",
+    "Seven parts cover the new landscape, research and its traps, ideation and writing, prototyping and design-to-code, testing, designing AI-powered products, and your career.",
+    "You'll find real incidents, specific tools, and exercises to do with the tools open. The tool names will age; the judgment underneath shouldn't."
   ]
 }
